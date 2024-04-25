@@ -8,6 +8,13 @@ using namespace std;
 // Function to register a new user
 bool registerUser() {
     string username, password;
+    int casePaperAmnt;
+    cout<<"You need to take case paper : 500 /-"<<endl;
+    cout<<"pay amount 500 /- "<< endl;
+    cin>>casePaperAmnt;
+    cout<< "Your Is Transaction Completed";
+
+
     cout << "Register" << endl;
     cout << "Enter username: ";
     cin >> username;
@@ -23,7 +30,7 @@ bool registerUser() {
     ofstream outfile(username + ".txt");
     if (outfile) {
         outfile << password << endl;
-        cout << "Registration successful. You can now log in." << endl;
+        cout << "**********************   Registration successful.   *********************" << endl;
         return true;
     } else {
         cout << "Failed to create user file." << endl;
@@ -34,6 +41,8 @@ bool registerUser() {
 // Function to log in an existing user
 bool loginUser() {
     string username, password, storedPassword;
+    int reChekAmnt;
+    
     cout << "Enter username: ";
     cin >> username;
     cout << "Enter password: ";
@@ -44,6 +53,10 @@ bool loginUser() {
         cout << "User not found. Please register first." << endl;
         return false;
     }
+    cout<<"Rechecking fee is 300 /-"<<endl;
+    cout<<"Pay Rechecking Amount:"<<endl;
+    cin>>reChekAmnt;
+    cout<< "Your Is Transaction Completed"<<endl<<endl;
 
     file >> storedPassword;
     if (storedPassword != password) {
@@ -71,7 +84,7 @@ int askAnxietyQuestions(const string& username) {
         "10. Do your anxiety symptoms significantly interfere with your daily life or activities?"
     };
 
-    ofstream userFile(username + "_Anxiety.txt", ios::app); // Append mode
+    ofstream userFile(username + "_UserData.txt", ios::app); // Append mode
 
     int count = 0;
     for (const string& question : questions) {
@@ -116,7 +129,7 @@ int askDepressiveQuestions(const string& username) {
         
     };
 
-    ofstream userFile(username + "_Anxiety.txt", ios::app); // Append mode
+    ofstream userFile(username + "_UserData.txt", ios::app); // Append mode
 
     int count = 0;
     for (const string& question : questions) {
@@ -161,7 +174,7 @@ int askStressRelatedQuestions(const string& username) {
         
     };
 
-    ofstream userFile(username + "_Anxiety.txt", ios::app); // Append mode
+    ofstream userFile(username + "_UserData", ios::app); // Append mode
 
     int count = 0;
     for (const string& question : questions) {
@@ -206,7 +219,7 @@ int askSubstanceUseQuestions(const string& username) {
         
     };
 
-    ofstream userFile(username + "_Anxiety.txt", ios::app); // Append mode
+    ofstream userFile(username + "_UserData", ios::app); // Append mode
 
     int count = 0;
     for (const string& question : questions) {
@@ -250,7 +263,7 @@ int askEatingDisorderQuestions(const string& username) {
 
     };
 
-    ofstream userFile(username + "_Anxiety.txt", ios::app); // Append mode
+    ofstream userFile(username + "_UserData", ios::app); // Append mode
 
     int count = 0;
     for (const string& question : questions) {
